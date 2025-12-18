@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District Science Centre - Science Fair Registration</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="govt-logo">
+                <img src="images/govt_logo.png" alt="Government of India">
+            </div>
+            <div class="header-content">
+                <h1>District Science Centre – Science Fair Registration System</h1>
+                <h2>Ministry of Culture | Government of India</h2>
+                <p class="subtitle">A Digital Registration & Management System</p>
+                <p class="location">District Science Centre, Purulia</p>
+            </div>
+            <div class="nscm-logo">
+                <img src="images/ncsm_logo.png" alt="NCSM">
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="welcome-card">
+                <div class="card-icon">
+                    <i class="fas fa-microscope"></i>
+                </div>
+                <h2>Welcome to DSC-SF Register Pro</h2>
+                <p class="welcome-text">Official registration system for District Science Fair 2025</p>
+                
+                <div class="features">
+                    <div class="feature">
+                        <i class="fas fa-user-plus"></i>
+                        <span>New Registration</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-edit"></i>
+                        <span>Modify Registration</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-file-export"></i>
+                        <span>Export Data</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-print"></i>
+                        <span>Print Slips</span>
+                    </div>
+                </div>
+
+                <a href="login.html" class="login-btn">
+                    <i class="fas fa-sign-in-alt"></i> Staff Login
+                </a>
+                
+                <div class="system-info">
+                    <p><i class="fas fa-server"></i> Local Database System</p>
+                    <p><i class="fas fa-shield-alt"></i> Government Grade Security</p>
+                    <p><i class="fas fa-sync-alt"></i> Real-time Data Sync</p>
+                </div>
+            </div>
+
+            <div class="quick-stats">
+                <h3><i class="fas fa-chart-line"></i> System Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="number" id="totalRegistrations">0</span>
+                        <span class="label">Total Registrations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number" id="seniorCount">0</span>
+                        <span class="label">Senior Section</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number" id="juniorCount">0</span>
+                        <span class="label">Junior Section</span>
+                    </div>
+                    <div class="stat">
+                        <span class="number" id="schoolsCount">0</span>
+                        <span class="label">Schools Registered</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2025 District Science Centre, Purulia | NCSM | Ministry of Culture | Government of India</p>
+            <p class="tech-info">System Version: 1.0 | Raspberry Pi 5 | Local Database | Secure Network</p>
+        </div>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script>
+        // Load statistics on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const db = new Database();
+            const stats = db.getStatistics();
+            
+            document.getElementById('totalRegistrations').textContent = stats.total;
+            document.getElementById('seniorCount').textContent = stats.senior;
+            document.getElementById('juniorCount').textContent = stats.junior;
+            document.getElementById('schoolsCount').textContent = stats.schools;
+        });
+    </script>
+</body>
+</html>
